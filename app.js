@@ -36,12 +36,11 @@ const mostCommonWords = async (str) => {
 // PART 2 - Replace Common Words
 const replaceCommonText = async (str) => {
     const wordsList = await mostCommonWords(str);
-    
     for (let item of wordsList) {
-        const regex = new RegExp(item[0],'gi');
+        const regex = new RegExp('\\b(' + item[0] + ')+\\b', 'gi');
         document.body.innerHTML = document.body.innerHTML.replaceAll(regex, item[1].toString());
     }
 }
 
 //mostCommonWords(pageText)
-//replaceCommonText(pageText);
+replaceCommonText(pageText);
